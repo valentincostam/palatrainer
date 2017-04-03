@@ -54,7 +54,6 @@ void actualizarRitmo() {
    
   Serial.print("Paladas por minuto: ");
   Serial.println(paladas, DEC);
-  Serial.println();
 } // Fin de actualizarRitmo()
 
 
@@ -148,6 +147,11 @@ void detectarPulsadores() {
 
   if (ambos) {
     buzzer_on = !buzzer_on;
+    
+    if (buzzer_on)
+      analogWrite(BUZZER, 210);
+    else
+      analogWrite(BUZZER, 0);
 
     Serial.print("Buzzer: ");
     Serial.println(buzzer_on, DEC);
